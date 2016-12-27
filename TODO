@@ -1,0 +1,73 @@
+
+  1) récupérer les fichiers data2.csv et hospidiag.pdf et hospidiag_opendata_xxxx.xlsx ou xxx parcours les entiers de 2008 à 2015 sur le site du challenge
+  2) reproduire la même démarche que dans le challenge Give Me Some Credit pour estimer *sur la seule base* des colonnes :
+      "Raison sociale”
+      "Provenance des patients”
+      "Domaines d’activités”
+      “Age”
+      "Nombre de séjours/séances MCO des patients en ALD”
+      "Nombre total de séjours/séances”
+      “Année”
+     toutes disponibles dans le fichier data2.csv la colonne “cible1”.
+   3) calculer votre score RMSE pour chacune des méthodes testées (regression logistique, random forests, boosting)
+   4) consigner le tout dans un notebook jupyter commenté
+   5) réfléchir sur le “comment', et si possible commencer, à intégrer les données provenant des fichiers hospidiag*.xlsx
+
+
+************************************************************************************************************************************
+
+
+
+1) Easy ! J'ai ajouté le notebook de "givemesomecredit" au git comme ça tu auras un exemple de projet ;) C'est un fichier .ipynb Tu ouvre "jupyter notebook" au même endroit et tu auras l'exemple !! Really useful !
+
+2) Je pense qu'il faut reperer les données qui sont utiles puis les transformer pour qu'elles puissent être utilisables parmi les 9 colonnes
+	Il faut distinguer plusieurs types de données :
+		- celles qui sont metriques :
+			- nombre de séjours en ALD ou nombre de séjours
+			- nombre de séjours total
+			- cible1
+		- celles qui sont non-métriques
+			- la finesse
+			- la raison sociale
+			- le département (provenance des patients)
+			- domaine d'activité
+			- l'âge
+			- l'année
+	Celles qui sont métriques, il n'y a pas besoin de toucher !
+	Les autres, il faut voir celles qu'on garde et qu'on juge utile et parmi celles-ci les transformer en dummies. (On en parle au tél :) )
+
+3) Alors là, il faut faire un k-fold (voir slides) : on divise notre set de données. On choisit nous même la proportion par exemple 70/30%. Et on sert des 30% pour tester notre algo. On obtient des résultats sur ces 30% à partir de l'entrainement sur les 70%. Et on calcule notre RMSE sur les données tests. On peut pas utiliser le vrai fichier test car on connait pas la vraie valeur cible ^^ 
+
+4) On verra...
+
+5) No idea yet !
+
+
+
+****************************************************************************************************************************************
+
+TODO Arezki
+
+
+
+TODO Pierre
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
